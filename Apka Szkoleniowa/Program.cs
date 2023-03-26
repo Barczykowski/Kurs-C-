@@ -29,16 +29,16 @@ Employee EmployeeWithMaxResult = null;
 foreach (var employee in Employers)
 
 {
-if (employee.result > maxResult)
+if (employee.Result > maxResult)
 
     {
-        maxResult = employee.result;
+        maxResult = employee.Result;
         EmployeeWithMaxResult = employee;
     }
 }
 
 
 Console.WriteLine("Najwięcej Punktów Zdobywa");
-Console.WriteLine(EmployeeWithMaxResult.name);
-Console.WriteLine(EmployeeWithMaxResult.surname);
-Console.WriteLine("lat" + EmployeeWithMaxResult.age);
+Console.WriteLine(EmployeeWithMaxResult.Name);
+Console.WriteLine(EmployeeWithMaxResult.Surname);
+Console.WriteLine("lat" + EmployeeWithMaxResult.Age);
