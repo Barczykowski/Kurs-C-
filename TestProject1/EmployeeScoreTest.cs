@@ -1,8 +1,8 @@
 using Apka_Szkoleniowa;
+namespace Piersze.Testowanie;
 
-namespace Pierwsze_Testowanie
-{
-    public class Tests
+
+    internal class Tests
     {
         [Test]
         public void Test1()
@@ -17,6 +17,5 @@ namespace Pierwsze_Testowanie
 
             Assert.AreEqual(0, result);
         }
-
+ 
     }
-}

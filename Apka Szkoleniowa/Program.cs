@@ -5,7 +5,7 @@ var employee2 = new Employee("Marek", "Kowal", 35);
 var employee3 = new Employee("Darek", "Krawczyk", 28);
 
 
-employee1.AddScore(2);
+employee1.AddScore(20);
 employee1.AddScore(2);
 employee1.AddScore(5);
 
