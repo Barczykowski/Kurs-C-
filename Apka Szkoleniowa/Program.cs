@@ -1,44 +1,18 @@
 ﻿using Apka_Szkoleniowa;
 
-var employee1 = new Employee("Maciek", "Nowak", 45);
-var employee2 = new Employee("Marek", "Kowal", 35);
-var employee3 = new Employee("Darek", "Krawczyk", 28);
+var employee = new Employee("Andrzej", "Gołota");
+employee.AddGrade(5);
+employee.AddGrade(3);
+employee.AddGrade(4);
 
+var statistics = employee.GetStatistics();
 
-employee1.AddScore(20);
-employee1.AddScore(2);
-employee1.AddScore(5);
+Console.WriteLine($"Average: {statistics.Average:N2}");
+Console.WriteLine($"Min: {statistics.Min}");
+Console.WriteLine($"Max: {statistics.Max}");
 
-employee2.AddScore(3);
-employee2.AddScore(9);
-employee2.AddScore(1);
-
-employee3.AddScore(2);
-employee3.AddScore(1);
-employee3.AddScore(3);
-
-List<Employee> Employers = new List<Employee>()
-
+SetSth(out statistics);
+ void SetSth(out Statistics statistics)
 {
-    employee1, employee2, employee3
-};
-
-int maxResult = -1;
-Employee EmployeeWithMaxResult = null;
-
-foreach (var employee in Employers)
-
-{
-if (employee.Result > maxResult)
-
-    {
-        maxResult = employee.Result;
-        EmployeeWithMaxResult = employee;
-    }
+    statistics = new Statistics();
 }
-
-
-Console.WriteLine("Najwięcej Punktów Zdobywa");
-Console.WriteLine(EmployeeWithMaxResult.Name);
-Console.WriteLine(EmployeeWithMaxResult.Surname);
-Console.WriteLine("lat" + EmployeeWithMaxResult.Age);

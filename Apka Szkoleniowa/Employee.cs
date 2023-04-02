@@ -1,39 +1,48 @@
-﻿namespace Apka_Szkoleniowa;
+﻿using System.Diagnostics;
 
-class Employee
+namespace Apka_Szkoleniowa
 {
-    private List<int> Score = new List<int>();
-
-
-    public Employee(string name, string surname, int age)
-    {
-        this.Name = name;
-        this.Surname = surname;
-        this.Age = age;
-    }
-
-    public string Name { get;   set; }
-
-    public string Surname { get;  set; }
-
-    public int Age { get;  set; }
-
-    public int Result
- 
+    public class Employee
     {
 
-        get
+        private List<float> grades = new List<float>();
+
+        public Employee(string name, string surname)
+            {
+
+            this.Name = name;
+            this.Surname = surname;
+            }
+    
+        public string Name { get; set; }
+     
+        public string Surname { get; set; }
+
+        public void AddGrade(float grade)
+       
         {
-            return this.Score.Sum();
+            this.grades.Add(grade); 
         }
-    }
 
-    public void AddScore(int number)
-    {
-        this.Score.Add(number);
-    }
+        public Statistics GetStatistics()
+        {
+            var statistics = new Statistics();
+            statistics.Max = float.MinValue;
+            statistics.Min = float.MaxValue;
+            statistics.Average = 0;
 
+
+            foreach (var grade in this.grades)
+            {
+                statistics.Max = Math.Max(statistics.Max, grade);
+                statistics.Min = Math.Min(statistics.Min, grade);
+                statistics.Average += grade;
+            }
+
+            statistics.Average /=  this.grades.Count;
+
+            return statistics; 
+        }
+            
+    }
 }
-
-
-
