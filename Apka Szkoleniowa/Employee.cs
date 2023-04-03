@@ -1,4 +1,5 @@
-﻿using System.Diagnostics;
+﻿using System.ComponentModel.Design;
+using System.Diagnostics;
 
 namespace Apka_Szkoleniowa
 {
@@ -9,9 +10,8 @@ namespace Apka_Szkoleniowa
 
         public Employee(string name, string surname)
             {
-
-            this.Name = name;
-            this.Surname = surname;
+             this.Name = name;
+             this.Surname = surname;
             }
     
         public string Name { get; set; }
@@ -19,10 +19,52 @@ namespace Apka_Szkoleniowa
         public string Surname { get; set; }
 
         public void AddGrade(float grade)
-       
+
         {
-            this.grades.Add(grade); 
+            if (grade >= 0 && grade <= 100)
+            {
+                this.grades.Add(grade);
+            }
+
+            else
+            {
+                Console.WriteLine("Zbyt duża liczba");
+            }  
+
         }
+
+        public void AddGrade(string grade)
+
+        {
+            if (float.TryParse(grade, out float result))
+            {
+                this.AddGrade(result);
+            }
+            
+            else
+            {
+                Console.WriteLine("String is not float");
+            }
+
+        }
+
+        public void AddGrade(double doubleGrade)
+
+
+        {
+            var floatGrade2 = Math.Round(doubleGrade, 2);
+            var floatGrade = (float)doubleGrade;
+            AddGrade(floatGrade);
+  
+        }
+
+
+
+
+
+
+
+
 
         public Statistics GetStatistics()
         {
