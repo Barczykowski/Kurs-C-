@@ -50,13 +50,31 @@ namespace Apka_Szkoleniowa
 
         public void AddGrade(double doubleGrade)
 
-
         {
-            var floatGrade2 = Math.Round(doubleGrade, 2);
-            var floatGrade = (float)doubleGrade;
+            var floatGrade = Math.Round(doubleGrade, 2);
             AddGrade(floatGrade);
   
         }
+
+        public void AddGrade(int intGrade)
+        
+        {
+            float floatGrade = intGrade;
+            this.AddGrade(floatGrade);
+        }
+
+        public void AddGrade(char charGrade)
+        {
+            var floatgrade = char.ToString(charGrade);
+            this.AddGrade(floatgrade);
+
+        }
+
+
+
+
+
+
 
 
 
