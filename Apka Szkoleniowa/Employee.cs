@@ -16,7 +16,7 @@ namespace Apka_Szkoleniowa
 
         public Employee()
         {
-           
+
         }
 
 
@@ -34,10 +34,12 @@ namespace Apka_Szkoleniowa
 
             else
             {
-                Console.WriteLine("Zbyt duża liczba");
+                Console.WriteLine("zbyt duża liczba");
             }
 
         }
+
+
 
         public void AddGrade(string grade)
 
@@ -47,18 +49,16 @@ namespace Apka_Szkoleniowa
                 this.AddGrade(result);
             }
 
-            else
+            else if (grade.Length == 1)
             {
-                Console.WriteLine("String is not float");
+                AddGrade(Convert.ToChar(grade));
             }
 
-        }
+            else
+            {
+                Console.WriteLine("niewłaściwa wartość");
+            }
 
-        public void AddGrade(double doubleGrade)
-
-        {
-            var floatGrade = Math.Round(doubleGrade, 2);
-            AddGrade(floatGrade);
 
         }
 
@@ -68,6 +68,17 @@ namespace Apka_Szkoleniowa
             float floatGrade = intGrade;
             this.AddGrade(floatGrade);
         }
+
+
+
+
+        public void AddGrade(double doubleGrade)
+
+        {
+            float floatGrade = (float)Math.Round(doubleGrade, 2);
+            this.AddGrade(floatGrade);
+        }
+
 
 
 
@@ -102,14 +113,13 @@ namespace Apka_Szkoleniowa
                     break;
 
                 default:
-                    Console.WriteLine("Niewłaściwa wartość");
+                    Console.WriteLine("niewłaściwa wartość");
                     break;
 
             }
 
 
         }
-
 
         public Statistics GetStatistics()
         {
@@ -118,16 +128,14 @@ namespace Apka_Szkoleniowa
             statistics.Min = float.MaxValue;
             statistics.Average = 0;
 
-            var statistic = 0;
-
 
             foreach (var grade in this.grades)
             {
 
 
-                statistics.Max = Math.Max(statistics.Max, this.grades[statistic]);
-                statistics.Min = Math.Min(statistics.Min, this.grades[statistic]);
-                statistics.Average += grades[statistic];
+                statistics.Max = Math.Max(statistics.Max, grade);
+                statistics.Min = Math.Min(statistics.Min, grade);
+                statistics.Average += grade;
 
             }
 
@@ -139,23 +147,28 @@ namespace Apka_Szkoleniowa
             {
                 case var average when average >= 80:
                     statistics.AverageLetter = 'A';
-                break;
+
+                    break;
 
                 case var average when average >= 60:
                     statistics.AverageLetter = 'B';
-                break;
+
+                    break;
 
                 case var average when average >= 40:
                     statistics.AverageLetter = 'C';
-                break;
+
+                    break;
 
                 case var average when average >= 20:
-                    statistics.AverageLetter = 'C';
-                break;
+                    statistics.AverageLetter = 'D';
+
+                    break;
 
                 default:
                     statistics.AverageLetter = 'E';
-                break;
+
+                    break;
             }
 
             return statistics;

@@ -14,9 +14,9 @@ while (true)
 {
     Console.WriteLine("Podaj kolejną ocenę pracownika: ");
     var input = Console.ReadLine();
-    if (input == "q")
+     if (input == "q")
     {
-        break;
+       break;
     }
 
     employee.AddGrade(input);
@@ -25,7 +25,6 @@ while (true)
 
 
 var statistics = employee.GetStatistics();
-
 Console.WriteLine($"Average: {statistics.Average}");
 Console.WriteLine($"Max: {statistics.Max}");
 Console.WriteLine($"Min: {statistics.Min}");
