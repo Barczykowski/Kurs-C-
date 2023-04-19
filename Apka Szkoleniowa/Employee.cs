@@ -5,6 +5,8 @@ namespace Apka_Szkoleniowa
 {
     public class Employee
     {
+        private const char sex = 'M';
+         
 
         private List<float> grades = new List<float>();
 
@@ -34,7 +36,8 @@ namespace Apka_Szkoleniowa
 
             else
             {
-                Console.WriteLine("zbyt duża liczba");
+                throw new Exception("zbyt duża liczba");
+
             }
 
         }
@@ -56,7 +59,8 @@ namespace Apka_Szkoleniowa
 
             else
             {
-                Console.WriteLine("niewłaściwa wartość");
+                throw new Exception("niewłaściwa wartość");
+
             }
 
 
@@ -79,6 +83,7 @@ namespace Apka_Szkoleniowa
             this.AddGrade(floatGrade);
         }
 
+        
 
 
 
@@ -113,9 +118,8 @@ namespace Apka_Szkoleniowa
                     break;
 
                 default:
-                    Console.WriteLine("niewłaściwa wartość");
-                    break;
 
+                   throw new Exception("podaj literę od A do E");
             }
 
 

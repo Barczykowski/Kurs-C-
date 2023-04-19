@@ -1,4 +1,5 @@
 ﻿using Apka_Szkoleniowa;
+using System;
 using System.Diagnostics;
 using System.Runtime.CompilerServices;
 
@@ -10,6 +11,7 @@ Console.WriteLine();
 
 var employee = new Employee();
 
+
 while (true)
 {
     Console.WriteLine("Podaj kolejną ocenę pracownika: ");
@@ -19,14 +21,23 @@ while (true)
        break;
     }
 
-    employee.AddGrade(input);
+
+     try
+    {
+        employee.AddGrade(input);
+    }
+    catch(Exception exception)
+    {
+        Console.WriteLine(exception.Message);
+    }
+
+
+   
 }
 
-
-
-var statistics = employee.GetStatistics();
-Console.WriteLine($"Average: {statistics.Average}");
-Console.WriteLine($"Max: {statistics.Max}");
-Console.WriteLine($"Min: {statistics.Min}");
+var Statistics = employee.GetStatistics();
+Console.WriteLine($"Average: {Statistics.Average}");
+Console.WriteLine($"Max: {Statistics.Max}");
+Console.WriteLine($"Min: {Statistics.Min}");
 
 
