@@ -3,27 +3,16 @@ using System.Diagnostics;
 
 namespace Apka_Szkoleniowa
 {
-    public class Employee
-    {
-        private const char sex = 'M';
-         
+    public class Employee : Person
+    {          
 
         private List<float> grades = new List<float>();
 
-        public Employee(string name, string surname)
+        public Employee(string name, string surname, string sex, int age)
+            :base(name, surname, sex, age)
         {
-            this.Name = name;
             this.Surname = surname;
         }
-
-        public Employee()
-        {
-
-        }
-
-
-        public string Name { get; set; }
-
         public string Surname { get; set; }
 
         public void AddGrade(float grade)
