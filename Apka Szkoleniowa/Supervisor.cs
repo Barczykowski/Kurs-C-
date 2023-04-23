@@ -25,6 +25,7 @@
                         break;
 
                     case "2-":
+                    case "-2":
                         this.grades.Add(15);
                         break;
 
@@ -33,10 +34,12 @@
                         break;
 
                     case "2+":
+                    case "+2":
                         this.grades.Add(25);
                         break;
 
                     case "3-":
+                    case "-3":
                         this.grades.Add(35);
                         break;
 
@@ -45,10 +48,12 @@
                         break;
 
                     case "3+":
-                         this.grades.Add(45);
+                    case "+3":
+                    this.grades.Add(45);
                          break;
 
                     case "4-":
+                    case "-4":
                         this.grades.Add(55);
                         break;
 
@@ -57,11 +62,13 @@
                         break;
 
                     case "4+":
+                    case "+4":
                         this.grades.Add(65);
                         break;
 
                     case "5-":
-                        this.grades.Add(75);
+                    case "-5":
+                    this.grades.Add(75);
                         break;
                   
                     case "5":
@@ -69,11 +76,13 @@
                         break;
 
                     case "5+":
-                        this.grades.Add(85);
+                    case "+5":
+                    this.grades.Add(85);
                         break;
 
                     case "6-":
-                        this.grades.Add(95);
+                    case "-6":
+                    this.grades.Add(95);
                         break;
 
                     case "6":
@@ -82,7 +91,7 @@
                     
                     default:
 
-                        throw new Exception("podaj ocenę od 1 do 6");
+                        throw new Exception("niewłaściwa wartość");
                 }
             }
 
