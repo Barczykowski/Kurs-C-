@@ -9,7 +9,7 @@ Console.WriteLine();
 
 
 
-var employee = new Employee("Maciej", "Barczykowski");
+var employee = new EmployeeInMemory("Maciej", "Barczykowski");
 
 
 while (true)
