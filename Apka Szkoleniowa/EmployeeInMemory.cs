@@ -1,21 +1,16 @@
 ﻿namespace Apka_Szkoleniowa
 {
-    public class EmployeeInMemory : IEmployee
+    public class EmployeeInMemory : EmployeeBase
     {
 
         private List<float> grades = new List<float>();
 
         public EmployeeInMemory(string name, string surname)
-        {
-            this.Name = name;
-            this.Surname = surname;
+            : base(name, surname)
+        {            
         }
 
-        public string Name { get; private set; }
-        public string Surname { get; private set; }
-
-
-        public void AddGrade(float grade)
+        public override void AddGrade(float grade)
 
         {
             if (grade >= 0 && grade <= 100)
@@ -31,9 +26,7 @@
 
         }
 
-
-
-        public void AddGrade(string grade)
+        public override void AddGrade(string grade)
 
         {
             if (float.TryParse(grade, out float result))
@@ -55,7 +48,7 @@
 
         }
 
-        public void AddGrade(int intGrade)
+        public override void AddGrade(int intGrade)
 
         {
             float floatGrade = intGrade;
@@ -63,9 +56,7 @@
         }
 
 
-
-
-        public void AddGrade(double doubleGrade)
+        public override void AddGrade(double doubleGrade)
 
         {
             float floatGrade = (float)Math.Round(doubleGrade, 2);
@@ -73,10 +64,7 @@
         }
 
 
-
-
-
-        public void AddGrade(char grade)
+        public override void AddGrade(char grade)
         {
             switch (grade)
             {
@@ -114,7 +102,7 @@
 
         }
 
-        public Statistics GetStatistics()
+        public override Statistics GetStatistics()
         {
             var statistics = new Statistics();
             statistics.Max = float.MinValue;

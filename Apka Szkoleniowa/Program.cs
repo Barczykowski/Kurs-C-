@@ -9,30 +9,30 @@ Console.WriteLine();
 
 
 
-var employee = new EmployeeInMemory("Maciej", "Barczykowski");
+var employee = new EmployeeInFile("Maciej", "Barczykowski");
+employee.AddGrade(0.5f);
 
-
-while (true)
+/*while (true)
 {
     Console.WriteLine("Podaj kolejną ocenę pracownika: ");
     var input = Console.ReadLine();
-     if (input == "q")
+    if (input == "q")
     {
-       break;
+        break;
     }
 
 
-     try
+    try
     {
         employee.AddGrade(input);
     }
-    catch(Exception exception)
+    catch (Exception exception)
     {
         Console.WriteLine(exception.Message);
     }
 
 
-   
+
 }
 
 var Statistics = employee.GetStatistics();
@@ -40,4 +40,4 @@ Console.WriteLine($"Average: {Statistics.Average}");
 Console.WriteLine($"Max: {Statistics.Max}");
 Console.WriteLine($"Min: {Statistics.Min}");
 
-
+*/
