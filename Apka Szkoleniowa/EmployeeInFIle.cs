@@ -1,4 +1,5 @@
-﻿using System.IO.Enumeration;
+﻿using System.Diagnostics;
+using System.IO.Enumeration;
 
 namespace Apka_Szkoleniowa
 {
@@ -15,15 +16,45 @@ namespace Apka_Szkoleniowa
         {
             using (var writer = File.AppendText(fileName))
             {
-                writer.Write(grade);
+                if (grade >= 0 && grade <= 100)
+
+                {
+                    writer.WriteLine(grade);
+                }
+
+                else
+                {
+                    throw new Exception("niewłaściwa wartość");
+                }
             }
         }
 
-        public override void AddGrade(int intGrade)
+        public override void AddGrade(int grade)
 
         {
-            float floatGrade = intGrade;
-            this.AddGrade(floatGrade);
+            float gradeAsFloat = (float)grade;
+            using (var writer = File.AppendText(fileName))
+            {
+                if (grade >= 0 && grade <= 100)
+                {
+                    writer.WriteLine(gradeAsFloat);
+                }
+                else
+                {
+                    throw new Exception("niewłaściwa wartość");
+                }
+            }
+        }
+
+
+        public override void AddGrade(double grade)
+
+        {
+            float gradeAsFloat = (float)grade;
+            using (var writer = File.AppendText(fileName))
+            {
+                writer.WriteLine(gradeAsFloat);
+            }
         }
 
         public override void AddGrade(string grade)
@@ -44,52 +75,65 @@ namespace Apka_Szkoleniowa
                 throw new Exception("niewłaściwa wartość");
 
             }
-
         }
 
-        public override void AddGrade(double doubleGrade)
-
-        {
-            float floatGrade = (float)Math.Round(doubleGrade, 2);
-            this.AddGrade(floatGrade);
-        }
 
         public override void AddGrade(char grade)
         {
-            switch (grade)
             {
-                case 'A':
-                case 'a':
-                    this.AddGrade(100);
-                    break;
+                switch (grade)
+                {
+                    case 'A':
+                    case 'a':
+                        using (var writer = File.AppendText(fileName))
+                        {
+                            writer.WriteLine(100);
+                        }
+                        break;
 
-                case 'B':
-                case 'b':
-                    this.AddGrade(80);
-                    break;
+                    case 'B':
+                    case 'b':
+                        using (var writer = File.AppendText(fileName))
+                        {
+                            writer.WriteLine(80);
+                        }
+                        break;
 
 
-                case 'C':
-                case 'c':
-                    this.AddGrade(60);
-                    break;
+                    case 'C':
+                    case 'c':
+                        using (var writer = File.AppendText(fileName))
+                        {
+                            writer.WriteLine(60);
+                        }
+                        break;
 
-                case 'D':
-                case 'd':
-                    this.AddGrade(40);
-                    break;
+                    case 'D':
+                    case 'd':
+                        using (var writer = File.AppendText(fileName))
+                        {
+                            writer.WriteLine(40);
+                        }
+                        break;
 
-                case 'E':
-                case 'e':
-                    this.AddGrade(20);
-                    break;
+                    case 'E':
+                    case 'e':
+                        using (var writer = File.AppendText(fileName))
+                        {
+                            writer.WriteLine(20);
+                        }
+                        break;
 
-                default:
+                    default:
 
-                    throw new Exception("podaj literę od A do E");
+                        throw new Exception("podaj literę od A do E");
+                }
+
             }
-
         }
+
+
+
 
         public override Statistics GetStatistics()
         {
@@ -103,9 +147,9 @@ namespace Apka_Szkoleniowa
         private List<float> ReadGradesFromFile()
         {
             var grades = new List<float>();
-            if (File.Exists($"{fileName}"))
+            if (File.Exists(fileName))
             {
-                using (var reader = File.OpenText($"{fileName}"))
+                using (var reader = File.OpenText(fileName))
                 {
                     var line = reader.ReadLine();
                     while (line != null)
@@ -123,20 +167,21 @@ namespace Apka_Szkoleniowa
         {
             var statistics = new Statistics();
             statistics.Average = 0;
-            statistics.Max = float.MaxValue;
-            statistics.Min = float.MinValue;
-
-
+            statistics.Max = float.MinValue;
+            statistics.Min = float.MaxValue;
+           
+            
+            
             foreach (var grade in grades)
-            {
-                if (grade >= 0)
+
+            
                 {
                     statistics.Max = Math.Max(statistics.Max, grade);
-                    statistics.Min = Math.Max(statistics.Min, grade);
+                    statistics.Min = Math.Min(statistics.Min, grade);
                     statistics.Average += grade;
                 }
 
-            }
+            
 
             statistics.Average /= grades.Count;
 

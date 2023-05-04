@@ -1,43 +1,22 @@
 ﻿using Apka_Szkoleniowa;
-using System;
-using System.Diagnostics;
-using System.Runtime.CompilerServices;
+
 
 Console.WriteLine("Witamy w programie XYZ do oceny pracowników");
-Console.WriteLine("___________________________________________");
+Console.WriteLine("===========================================");
 Console.WriteLine();
 
-
-
-var employee = new EmployeeInFile("Maciej", "Barczykowski");
-employee.AddGrade(0.5f);
-
-/*while (true)
-{
-    Console.WriteLine("Podaj kolejną ocenę pracownika: ");
-    var input = Console.ReadLine();
-    if (input == "q")
-    {
-        break;
-    }
-
-
-    try
-    {
-        employee.AddGrade(input);
-    }
-    catch (Exception exception)
-    {
-        Console.WriteLine(exception.Message);
-    }
+var employee = new EmployeeInFile("Maciek", "Barczykowski");
+employee.AddGrade(10);
+employee.AddGrade(50);
+employee.AddGrade(28.5);
+employee.AddGrade('A');
+employee.AddGrade(30);
+employee.AddGrade("C");
 
 
 
-}
 
-var Statistics = employee.GetStatistics();
-Console.WriteLine($"Average: {Statistics.Average}");
-Console.WriteLine($"Max: {Statistics.Max}");
-Console.WriteLine($"Min: {Statistics.Min}");
-
-*/
+var statistics = employee.GetStatistics();
+Console.WriteLine($"Average: {statistics.Average}");
+Console.WriteLine($"Min: {statistics.Min}");
+Console.WriteLine($"Max: {statistics.Max}");
