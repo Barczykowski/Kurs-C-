@@ -10,7 +10,7 @@ employee.GradeAdded  += EmployeeGradeAdded;
 
 void EmployeeGradeAdded(object sender, EventArgs args)
 {
-    Console.WriteLine("Dodano nową ocenę");
+    Console.WriteLine("Dodano nową ocenę"); 
 }
 
 employee.AddGrade(50);

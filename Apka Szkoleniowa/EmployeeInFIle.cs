@@ -186,7 +186,7 @@
 
             statistics.Average /= grades.Count;
 
-            switch (statistics.Average)
+            switch (statistics.Average) 
             {
                 case var average when average >= 80:
                     statistics.AverageLetter = 'A';
