@@ -20,10 +20,6 @@
                 {
                     writer.WriteLine(grade);
                     
-                    if (GradeAdded != null)
-                    {
-                      GradeAdded(this, new EventArgs());
-                    }
                     
                 }
 
