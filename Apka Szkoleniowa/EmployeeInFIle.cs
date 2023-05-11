@@ -23,7 +23,13 @@
                     
                 }
 
+                if (GradeAdded != null)
+                {
+                    GradeAdded(this, new EventArgs());
+                }
+
                 else
+
                 {
                     throw new Exception("niewłaściwa wartość");
                 }
@@ -34,17 +40,8 @@
 
         {
             float gradeAsFloat = (float)grade;
-            using (var writer = File.AppendText(fileName))
-            {
-                if (grade >= 0 && grade <= 100)
-                {
-                    writer.WriteLine(gradeAsFloat);
-                }
-                else
-                {
-                    throw new Exception("niewłaściwa wartość");
-                }
-            }
+            
+            AddGrade(gradeAsFloat);
         }
 
 
@@ -52,10 +49,8 @@
 
         {
             float gradeAsFloat = (float)grade;
-            using (var writer = File.AppendText(fileName))
-            {
-                writer.WriteLine(gradeAsFloat);
-            }
+
+            AddGrade(gradeAsFloat);
         }
 
         public override void AddGrade(string grade)
@@ -65,6 +60,8 @@
             {
                 this.AddGrade(result);
             }
+
+
 
             else if (grade.Length == 1)
             {
