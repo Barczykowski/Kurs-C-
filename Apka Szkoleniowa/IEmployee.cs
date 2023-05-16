@@ -1,4 +1,6 @@
 ﻿
+using static Apka_Szkoleniowa.EmployeeBase;
+
 namespace Apka_Szkoleniowa
 {
     public interface IEmployee
@@ -18,6 +20,8 @@ namespace Apka_Szkoleniowa
         void AddGrade(char grade);
 
         void AddGrade(float grade);
+
+        public event GradeAddedDelegate GradeAdded;
 
     }
 }
